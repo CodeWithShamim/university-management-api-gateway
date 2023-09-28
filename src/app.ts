@@ -2,7 +2,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express, { Application } from 'express';
 import httpStatus from 'http-status';
-// import routes from './app/routes';
+import routes from './app/routes';
 import globalExceptionHandler from './app/middlewares/globalExceptionHandler';
 
 const app: Application = express();
@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
-// app.use('/api/v1', routes);
+app.use('/api/v1', routes);
 app.get('/', (req, res) => {
   res.send('Server running successfully.');
 });
